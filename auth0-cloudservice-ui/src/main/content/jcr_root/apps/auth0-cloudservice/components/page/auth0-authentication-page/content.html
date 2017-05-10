@@ -1,0 +1,12 @@
+<div data-sly-use.cloudconfig="${component.properties['className']}">
+    <h3>Auth0 Authentication Cloud Service</h3>
+    <p>Service for web properties using Auth0 for authentication purposes.</p>
+    <div class="configuration">
+        <dl>
+            <dt>Client ID</dt>
+            <dd>${cloudconfig.clientId}</dd>
+            <dt>Domain</dt>
+            <dd>${cloudconfig.domain}</dd>
+        </dl>
+    </div>
+</div>

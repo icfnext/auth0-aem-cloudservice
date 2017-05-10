@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="cq:Template"
+          jcr:title="Auth0 Authentication Configuration"
+          allowedPaths="/etc/cloudservices/auth0-cloudservice(/.*)?"
+          allowedChildren="[/apps/auth0-cloudservice/templates/auth0-authentication-cloudservice]"
+          sling:resourceSuperType="cq/cloudserviceconfigs/templates/configpage"
+          ranking="0">
+    <jcr:content
+            jcr:primaryType="cq:PageContent"
+            cq:designPath="/etc/designs/cloudservices/auth0-cloudservice"
+            sling:resourceType="auth0-cloudservice/components/page/auth0-authentication-page"
+            cq:cloudservicename="auth0-cloudservice"/>
+</jcr:root>

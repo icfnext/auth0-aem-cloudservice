@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/auth0-cloudservice" />
+    <filter root="/etc/cloudservices/auth0-cloudservice">
+        <include pattern="/etc/cloudservices/auth0-cloudservice/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/etc/designs/auth0-cloudservice">
+        <exclude pattern="/etc/designs/auth0-cloudservice/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/etc/clientlibs/auth0-cloudservice"/>
+</workspaceFilter>

@@ -1,0 +1,20 @@
+{
+  "name": "auth0-cloudservice",
+  "version": "0.1.0",
+  "description": "Service for web properties using Auth0 for authentication purposes",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "Paul Michelotti",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "webpack": "^2.4.1"
+  },
+  "dependencies": {
+    "auth0-lock": "^10.15.1"
+  }
+}

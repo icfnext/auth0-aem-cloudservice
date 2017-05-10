@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+            jcr:primaryType="cq:PageContent"
+            jcr:template="/libs/cq/cloudserviceconfigs/templates/servicepage"
+            jcr:title="Auth0 Authentication"
+            description="Service for web properties using Auth0 for authentication purposes."
+            jcr:description="Service for web properties using Auth0 for authentication purposes."
+            descriptionExtended="Service for web properties using Auth0 for authentication purposes."
+            ranking="1000"
+            sling:resourceType="cq/cloudserviceconfigs/components/servicepage"
+            cq:designPath="/etc/designs/cloudservices/auth0-cloudservice"
+            componentReference="auth0-cloudservice/components/cloudservices/auth0-authentication"
+            allowMultiple="{Boolean}true"
+    />
+</jcr:root>

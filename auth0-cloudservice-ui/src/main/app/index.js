@@ -1,6 +1,16 @@
 import Auth0Lock from 'auth0-lock';
 
+//TODO: Refactor into an options object
 const Auth0Manager = function( clientId, domain, redirectUrl, returnUrl ) {
+
+    const logoutReturnUrlStorageKey = 'com.icfolson.aem.auth0service.Auth0Manager.returnUrl';
+    let logoutReturnUrl = sessionStorage.getItem( logoutReturnUrlStorageKey );
+
+    if ( logoutReturnUrl ) {
+        sessionStorage.removeItem( logoutReturnUrlStorageKey );
+        return window.location.replace( logoutReturnUrl );
+    }
+
     let eventCallbacks = {
         authenticated: [],
         logout: []
@@ -18,16 +28,17 @@ const Auth0Manager = function( clientId, domain, redirectUrl, returnUrl ) {
 
     if ( returnUrl ) {
         authOptions.state = returnUrl;
-        //authOptions.params = { state: returnUrl };
     }
+
+
 
     let lock = new Auth0Lock( clientId, domain, { auth: authOptions } );
 
     lock.on( 'authenticated', ( authResult ) => {
-        // Use the token in authResult to getUserInfo() and save it to localStorage
         lock.getUserInfo( authResult.accessToken, function ( error, profile ) {
             if ( error ) {
-                // Handle error
+                //TODO: Handle error
+                console.error( error );
                 return;
             }
 
@@ -78,8 +89,6 @@ const Auth0Manager = function( clientId, domain, redirectUrl, returnUrl ) {
                     throw new Error('User already authenticated');
                 }
 
-
-
                 lock.show();
 
                 return true;
@@ -96,8 +105,12 @@ const Auth0Manager = function( clientId, domain, redirectUrl, returnUrl ) {
             logoutOptions.returnTo = returnUrl;
         }
 
-        //TODO: Return URL
-        lock.logout();
+        //TODO: Allow for a separately configured URL
+        sessionStorage.setItem( logoutReturnUrlStorageKey, window.location.href );
+
+        lock.logout( {
+            returnTo: redirectUrl
+        } );
 
         return Promise.resolve();
     };

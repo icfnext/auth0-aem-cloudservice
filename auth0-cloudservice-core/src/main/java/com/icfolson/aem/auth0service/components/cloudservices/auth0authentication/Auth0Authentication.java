@@ -46,6 +46,14 @@ public class Auth0Authentication {
         return "no config";
     }
 
+    public boolean isPopup() {
+        if (isHasConfiguration()) {
+            return getConfiguration().get("popup", false);
+        }
+
+        return false;
+    }
+
     public PageDecorator getConfiguredPage() {
         //TODO: Optimize so this is used throughout
         return currentPage.findAncestor(new IsConfiguredPagePredicate(configurationManager), false).orNull();

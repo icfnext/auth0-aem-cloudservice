@@ -6,10 +6,8 @@
             context.auth0Manager = new Auth0Service.Auth0Manager(
                 '${authentication.clientId @ context="scriptString"}',
                 '${authentication.domain @ context="scriptString"}',
-                <sly data-sly=test="${!authentication.popup}">
-                    context.location.origin + '${authentication.configuredPage.path @ context="scriptString"}.html', //TODO: Use a properly mapped and externalized URL
-                    context.location.href //TODO: don't send this if we are in popup mode
-                </sly>
+                context.location.origin + '${authentication.configuredPage.path @ context="scriptString"}.html', //TODO: Use a properly mapped and externalized URL
+                context.location.href //TODO: don't send this if we are in popup mode
             );
         } )( window );
     </script>

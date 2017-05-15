@@ -3,8 +3,11 @@ package com.icfolson.aem.auth0service.components.page.auth0authentication;
 import com.citytechinc.cq.component.annotations.Component;
 import com.citytechinc.cq.component.annotations.ContentProperty;
 import com.citytechinc.cq.component.annotations.DialogField;
+import com.citytechinc.cq.component.annotations.Option;
+import com.citytechinc.cq.component.annotations.widgets.Selection;
 import com.citytechinc.cq.component.annotations.widgets.TextField;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
 
@@ -31,6 +34,10 @@ public class Auth0AuthenticationPage {
     @Inject @Optional
     private String domain;
 
+    @DialogField(fieldLabel = "Popup") @Selection(type = Selection.CHECKBOX, options = @Option(text = "Yes", value = "true"))
+    @Inject @Default(booleanValues = false)
+    private boolean popup;
+
     public String getClientId() {
         return clientId;
     }
@@ -39,4 +46,7 @@ public class Auth0AuthenticationPage {
         return domain;
     }
 
+    public boolean isPopup() {
+        return popup;
+    }
 }

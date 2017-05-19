@@ -90,5 +90,6 @@ successful logout or immediately if the user is not authenticated.
 * Front-end-first deployment so that `npm run deploy` runs the build and deploys the AEM package
 * Enable some mechanism to setup a static logout and login path - currently it just uses the site root
 * Allow for popup mode for Cordova applications
+* Enable server-side authentication in AEM (ie, create new users)
 * Allow for a non-lock mode for cases where the Auth0 API is to be used directly
 
